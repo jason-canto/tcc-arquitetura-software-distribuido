@@ -1,0 +1,13 @@
+<h2 class="text-center">Ordem de compra</h2>
+<ul>
+    <li *ngFor="let order of orders.productOrders">
+        {{ order.product.name }} - R${{ order.product.price }} x {{ order.quantity}} pcs.
+    </li>
+</ul>
+<h3 class="text-right">Total da compra: R${{ total }}</h3>
+
+<button class="btn btn-primary btn-block" (click)="pay()" *ngIf="!paid">Pagar</button>
+
+<div class="alert alert-success" role="alert" *ngIf="paid">
+    <strong>Parabéns!</strong> Sua compra foi finalizada com sucesso.
+</div>
