@@ -4,24 +4,24 @@ import {HttpModule} from "@angular/http";
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FacebookModule} from "ngx-facebook";
-import {UrlPermission} from "./ecommerce/urlPermission/url.permission";
 import {routing} from "./app.routing";
-import {AuthenticationService} from "./ecommerce/services/auth.service";
+import {AuthService} from "./services/auth.service";
+import {AccountService} from "./services/account.service";
+import {EcommerceService} from "./services/ecommerce.service";
+import {UserService} from "./services/user.service";
 import {AppComponent} from './app.component';
-import {EcommerceComponent} from './ecommerce/ecommerce.component';
-import {ProductsComponent} from './ecommerce/products/products.component';
-import {ShoppingCartComponent} from './ecommerce/shopping-cart/shopping-cart.component';
-import {OrdersComponent} from './ecommerce/orders/orders.component';
-import {EcommerceService} from "./ecommerce/services/EcommerceService";
-import {LoginComponent} from './ecommerce/components/login/login.component';
-import {RegisterComponent} from './ecommerce/components/register/register.component';
-import {AuthService} from "./ecommerce/services/auth.service";
-import {AccountService} from "./ecommerce/services/account.service";
-import {ProfileComponent} from './ecommerce/components/profile/profile.component';
-import {AddUserComponent} from './ecommerce/add-user/add-user.component';
-import {EditUserComponent} from './ecommerce/edit-user/edit-user.component';
-import {ListUserComponent} from './ecommerce/list-user/list-user.component';
-import {UserService} from "./ecommerce/services/user.service";
+import {EcommerceComponent} from './components/ecommerce/ecommerce.component';
+import {ProductsComponent} from './components/products/products.component';
+import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component';
+import {OrdersComponent} from './components/orders/orders.component';
+import {LoginComponent} from './components/login/login.component';
+import {RegisterComponent} from './components/register/register.component';
+import {ProfileComponent} from './components/profile/profile.component';
+import {AddUserComponent} from './components/add-user/add-user.component';
+import {EditUserComponent} from './components/edit-user/edit-user.component';
+import {ListUserComponent} from './components/list-user/list-user.component';
+import {UrlPermission} from "./urlPermission/url.permission";
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -45,7 +45,8 @@ import {UserService} from "./ecommerce/services/user.service";
 		FacebookModule.forRoot(),
         ReactiveFormsModule
     ],
-    providers: [AuthService,AccountService,UrlPermission,AuthenticationService, UserService, EcommerceService],
+    providers: [AuthService, AccountService, UrlPermission, UserService, EcommerceService],
     bootstrap: [AppComponent]
 })
+
 export class AppModule {}

@@ -1,9 +1,10 @@
 package com.jason.ecommerce.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jason.ecommerce.exception.ResourceNotFoundException;
 import com.jason.ecommerce.model.User;
 import com.jason.ecommerce.repository.UserRepository;
 
@@ -23,13 +24,18 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getUser(long id) {
-		return userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Usuário inexistente!"));
+	public Optional<User> find(Long id) {
+		return userRepository.findById(id);
 	}
 
 	@Override
 	public User save(User user) {
 		return userRepository.save(user);
+	}
+
+	@Override
+	public User find(String userName) {
+		return userRepository.findByUsername(userName);
 	}
 
 	@Override

@@ -22,11 +22,11 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.authService.logIn(this.user)
-      .subscribe(data=>{
-        this.router.navigate(['/profile']);
-        },err=>{
-        this.errorMessage="error :  Username or password is incorrect";
+		.subscribe(data=> {
+			this.router.navigate(['/profile']);
+        }, err=> {
+			this.errorMessage="error :  Username or password is incorrect";
         }
-      )
+    )
   }
 }

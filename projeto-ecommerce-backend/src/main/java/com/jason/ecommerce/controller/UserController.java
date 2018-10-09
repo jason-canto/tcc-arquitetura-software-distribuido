@@ -29,7 +29,7 @@ public class UserController {
 	public ResponseEntity<List<User>> getAllUsers() {
 		List<User> users = new ArrayList<>();
 		service.getAllUsers().forEach(users::add);
-		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+		return new ResponseEntity<>(users, HttpStatus.OK);
 	}
 
 	@PostMapping("/users")
@@ -46,15 +46,11 @@ public class UserController {
 
 	@PutMapping("/users/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User customer) {
-		if (service.getUser(id) != null) {
-			return new ResponseEntity<>(service.save(customer), HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		return new ResponseEntity<>(service.save(customer), HttpStatus.OK);
 	}
 
 	@GetMapping("/users/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable Long id) {
-		return new ResponseEntity<>(service.getUser(id), HttpStatus.OK);
+		return new ResponseEntity<>(service.find(id).get(), HttpStatus.OK);
 	}
 }

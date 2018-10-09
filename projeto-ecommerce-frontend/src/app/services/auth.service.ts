@@ -3,6 +3,7 @@ import { Http, Headers, RequestOptions,Response} from '@angular/http';
 import {User} from "../model/model.user";
 import { map } from 'rxjs/operators';
 import {AppComponent} from "../app.component";
+
 @Injectable()
 export class AuthService {
   constructor(public http: Http) { }
@@ -12,13 +13,13 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Accept', 'application/json')
     // creating base64 encoded String from user name and password
-    var base64Credential: string = btoa( user.username+ ':' + user.password);
+    var base64Credential: string = btoa(user.username + ':' + user.password);
     headers.append("Authorization", "Basic " + base64Credential);
 
     let options = new RequestOptions();
     options.headers=headers;
 
-    return this.http.get(AppComponent.API_URL+"/account/login" ,   options)
+    return this.http.get(AppComponent.API_URL + "/account/login" ,   options)
 	  .pipe(
 	    map((response: Response) => {
 		  let user = response.json().principal;
@@ -31,7 +32,7 @@ export class AuthService {
 
   logOut() {
     // remove user from local storage to log user out
-    return this.http.post(AppComponent.API_URL+"logout",{})
+    return this.http.post(AppComponent.API_URL + "logout",{})
 	  .pipe(
 	    map((response: Response) => {
           localStorage.removeItem('currentUser');

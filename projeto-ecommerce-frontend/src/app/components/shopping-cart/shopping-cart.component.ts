@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
-import {ProductOrders} from "../models/product-orders.model";
-import {ProductOrder} from "../models/product-order.model";
-import {EcommerceService} from "../services/EcommerceService";
+import {ProductOrders} from "../../model/product-orders.model";
+import {ProductOrder} from "../../model/product-order.model";
+import {EcommerceService} from "../../services/ecommerce.service";
 import {Subscription} from "rxjs/internal/Subscription";
 
 @Component({

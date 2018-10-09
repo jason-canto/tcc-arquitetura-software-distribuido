@@ -1,20 +1,22 @@
 package com.jason.ecommerce.service;
 
-import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
-import org.springframework.validation.annotation.Validated;
+import javax.validation.constraints.NotNull;
 
 import com.jason.ecommerce.model.User;
 
-@Validated
 public interface UserService {
 
 	@NotNull
 	Iterable<User> getAllUsers();
 
-	User getUser(long id);
-
 	User save(User user);
 
 	void deleteById(long id);
+
+	User find(String userName);
+
+	Optional<User> find(Long id);
+	
 }
