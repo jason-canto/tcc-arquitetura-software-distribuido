@@ -5,26 +5,26 @@ import {Subject} from "rxjs/internal/Subject";
 
 @Injectable()
 export class UserService {
-  constructor(private http: HttpClient) { }
-  private usersUrl = "/admin/users";
+	constructor(private http: HttpClient) { }
+	private usersUrl = "/admin/users";
 
-  getUsers() {
-    return this.http.get<User[]>(this.usersUrl);
-  }
+	getUsers() {
+		return this.http.get<User[]>(this.usersUrl);
+	}
 
-  getUserById(id: number) {
-    return this.http.get<User>(this.usersUrl + '/' + id);
-  }
+	getUserById(id: number) {
+		return this.http.get<User>(this.usersUrl + '/' + id);
+	}
 
-  createUser(user: User) {
-    return this.http.post(this.usersUrl, user);
-  }
+	createUser(user: User) {
+		return this.http.post(this.usersUrl, user);
+	}
 
-  updateUser(user: User) {
-    return this.http.put(this.usersUrl + '/' + user.id, user);
-  }
+	updateUser(user: User) {
+		return this.http.put(this.usersUrl + '/' + user.id, user);
+	}
 
-  deleteUser(id: number) {
-    return this.http.delete(this.usersUrl + '/' + id);
-  }
+	deleteUser(id: number) {
+		return this.http.delete(this.usersUrl + '/' + id);
+	}
 }

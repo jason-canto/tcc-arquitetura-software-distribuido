@@ -19,14 +19,14 @@ import com.jason.ecommerce.model.User;
 import com.jason.ecommerce.service.UserService;
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/admin")
 public class UserController {
 
 	@Autowired
 	private UserService service;
 
 	@GetMapping("/users")
-	public ResponseEntity<List<User>> getAllUsers() {
+	public ResponseEntity<List<User>> getUsers() {
 		List<User> users = new ArrayList<>();
 		service.getAllUsers().forEach(users::add);
 		return new ResponseEntity<>(users, HttpStatus.OK);

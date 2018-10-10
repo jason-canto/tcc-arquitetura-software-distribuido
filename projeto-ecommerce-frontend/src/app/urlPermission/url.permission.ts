@@ -8,11 +8,11 @@ export class UrlPermission implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (localStorage.getItem('currentUser')) {
-      // logged in so return true
+      // usuario logado cache
       return true;
     }
 
-    // not logged in so redirect to login page with the return url
+    // nao logado redirect
     this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
     return false;
   }

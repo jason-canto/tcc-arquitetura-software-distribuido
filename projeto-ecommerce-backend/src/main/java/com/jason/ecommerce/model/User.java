@@ -20,15 +20,15 @@ public class User implements Serializable {
 	@Id
 	private String id;
 
-	private String name;
+	private String firstName;
+
+	private String lastName;
 
 	private String email;
 
 	private String username;
 
 	private String role;
-
-	private String fullName;
 
 	private String password;
 
