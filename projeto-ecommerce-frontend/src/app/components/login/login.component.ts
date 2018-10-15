@@ -5,27 +5,22 @@ import {Router} from "@angular/router";
 
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
-  user: User = new User();
-  errorMessage:string;
-  constructor(private authService :AuthService, private router: Router) { }
+    user: User = new User();
+    errorMessage:string;
+    constructor(private authService :AuthService, private router: Router) {}
+    ngOnInit() {}
 
-
-
-  ngOnInit() {
-  }
-
-  login(){
-    this.authService.logIn(this.user)
-		.subscribe(data=> {
-			this.router.navigate(['/profile']);
+    login(){
+        this.authService.logIn(this.user).subscribe(data=> {
+            this.router.navigate(['/profile']);
         }, err=> {
-			this.errorMessage="Erro :  Usuário ou senha incorretos!";
+            this.errorMessage="Erro : Usuário ou senha incorretos!";
         }
     )
   }

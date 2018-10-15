@@ -1,18 +1,30 @@
 package com.jason.ecommerce.service;
 
-import javax.validation.constraints.NotNull;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import com.jason.ecommerce.model.Product;
+import com.jason.ecommerce.repository.ProductRepository;
 
 @Validated
-public interface ProductService {
+@Service
+@Transactional
+public class ProductService {
 
-	@NotNull
-	Iterable<Product> getAllProducts();
+	@Autowired
+	private ProductRepository productRepository;
 
-	Product getProduct(long id);
+	public Iterable<Product> getAllProducts() {
+		return productRepository.findAll();
+	}
 
-	Product save(Product product);
+	public Product getProduct(long id) {
+		return productRepository.findOne(id);
+	}
+
+	public Product save(Product product) {
+		return productRepository.save(product);
+	}
 }

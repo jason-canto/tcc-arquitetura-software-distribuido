@@ -12,7 +12,7 @@ export class UserService {
 		return this.http.get<User[]>(this.usersUrl);
 	}
 
-	getUserById(id: number) {
+	getUserById(id: string) {
 		return this.http.get<User>(this.usersUrl + '/' + id);
 	}
 
@@ -24,7 +24,7 @@ export class UserService {
 		return this.http.put(this.usersUrl + '/' + user.id, user);
 	}
 
-	deleteUser(id: number) {
+	deleteUser(id: string) {
 		return this.http.delete(this.usersUrl + '/' + id);
 	}
 }

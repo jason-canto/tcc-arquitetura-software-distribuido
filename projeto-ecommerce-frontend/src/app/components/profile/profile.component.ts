@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
 			data => {
 				this.router.navigate(['/login']);
 			},
-        error => {});
+        	error => {}
+        );
 	}
 }

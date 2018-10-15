@@ -28,7 +28,7 @@ public class UserController {
 	@GetMapping("/users")
 	public ResponseEntity<List<User>> getUsers() {
 		List<User> users = new ArrayList<>();
-		service.getAllUsers().forEach(users::add);
+		service.findAll().forEach(users::add);
 		return new ResponseEntity<>(users, HttpStatus.OK);
 	}
 
@@ -51,6 +51,6 @@ public class UserController {
 
 	@GetMapping("/users/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable Long id) {
-		return new ResponseEntity<>(service.find(id).get(), HttpStatus.OK);
+		return new ResponseEntity<>(service.find(id), HttpStatus.OK);
 	}
 }

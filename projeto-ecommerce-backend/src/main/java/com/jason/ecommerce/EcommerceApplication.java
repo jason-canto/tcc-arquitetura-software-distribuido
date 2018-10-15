@@ -21,13 +21,13 @@ public class EcommerceApplication {
 
 	@PostConstruct
 	public void init() {
-		service.save(new Product(1L, "Teste 1", 300.00, "http://placehold.it/200x100"));
-		service.save(new Product(2L, "Teste 2", 200.00, "http://placehold.it/200x100"));
-		service.save(new Product(3L, "Teste 3", 100.00, "http://placehold.it/200x100"));
-		service.save(new Product(4L, "Teste 4", 5.00, "http://placehold.it/200x100"));
-		service.save(new Product(5L, "Teste 5", 3.00, "http://placehold.it/200x100"));
-		service.save(new Product(6L, "Lala ", 500.00, "http://placehold.it/200x100"));
-		service.save(new Product(7L, "Lalala", 30.00, "http://placehold.it/200x100"));
+		service.save(new Product(1L, "Relógio Masculino", 300.00, "http://eshop.skoda-auto.com/wcsstore/B2CStore/Pictures/Katalog-galerie/TN_000050800S_1.jpg"));
+		service.save(new Product(2L, "Relógio Prateado", 200.00, "http://eshop.skoda-auto.com/wcsstore/B2CStore/Pictures/Katalog-galerie/TN_000050801E041_2.jpg"));
+		service.save(new Product(3L, "Relógio Esportivo", 100.00, "https://eshop.skoda-auto.sk/wcsstore/ESVKStore/Pictures/Katalog-galerie/TN_000050800R_1.jpg"));
+		service.save(new Product(4L, "Relógio Masculino", 50.00, "https://i.ebayimg.com/thumbs/images/g/ZyYAAOSwSzRZOhxM/s-l200.jpg"));
+		service.save(new Product(5L, "Relógio Feminino", 35.00, "http://www.discounted4you.com/resources/Kenth%20Cole%20Watch%204764.jpg"));
+		service.save(new Product(6L, "Relógio Dourado ", 500.00, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEgLZFaIfLcw7qb0CYa5u0UWMMrLZG_K6ROKl1_XLC_Vu93u8I6g"));
+		service.save(new Product(7L, "Relógio Unisex", 30.00, "http://eshop.skoda-auto.com/wcsstore/B2CStore/Pictures/Katalog-galerie/TN_3U0050800_5.jpg"));
 	}
 
 }

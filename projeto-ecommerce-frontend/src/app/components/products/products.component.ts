@@ -10,6 +10,7 @@ import {Product} from "../../model/product.model";
     templateUrl: './products.component.html',
     styleUrls: ['./products.component.css']
 })
+
 export class ProductsComponent implements OnInit {
     productOrders: ProductOrder[] = [];
     products: Product[] = [];

@@ -29,7 +29,7 @@ export class EditUserComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required]
     });
-    this.userService.getUserById(+userId)
+    this.userService.getUserById(userId)
       .subscribe( data => {
         this.editForm.setValue(data);
       });

@@ -1,14 +1,25 @@
 package com.jason.ecommerce.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import com.jason.ecommerce.model.OrderProduct;
+import com.jason.ecommerce.repository.OrderProductRepository;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Validated
-public interface OrderProductService {
+@Service
+@Transactional
+public class OrderProductService {
 
-	OrderProduct create(@NotNull @Valid OrderProduct orderProduct);
+	@Autowired
+	private OrderProductRepository orderProductRepository;
+
+	public OrderProduct create(@NotNull @Valid OrderProduct orderProduct) {
+		return orderProductRepository.save(orderProduct);
+	}
 }

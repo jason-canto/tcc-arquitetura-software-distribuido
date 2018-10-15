@@ -1,22 +1,40 @@
 package com.jason.ecommerce.service;
 
-import java.util.Optional;
+import java.util.List;
 
-import javax.validation.constraints.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jason.ecommerce.model.User;
+import com.jason.ecommerce.repository.UserRepository;
 
-public interface UserService {
+@Service
+public class UserService {
 
-	@NotNull
-	Iterable<User> getAllUsers();
+	@Autowired
+	UserRepository userRepository;
 
-	User save(User user);
+	public User save(User user) {
+		return userRepository.saveAndFlush(user);
+	}
 
-	void deleteById(long id);
+	public User update(User user) {
+		return userRepository.save(user);
+	}
 
-	User find(String userName);
+	public User find(String userName) {
+		return userRepository.findOneByUsername(userName);
+	}
 
-	Optional<User> find(Long id);
-	
+	public User find(Long id) {
+		return userRepository.findOne(id);
+	}
+
+	public List<User> findAll() {
+		return userRepository.findAll();
+	}
+
+	public void deleteById(Long id) {
+		userRepository.delete(id);
+	}
 }

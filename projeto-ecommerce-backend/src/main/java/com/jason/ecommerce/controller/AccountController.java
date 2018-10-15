@@ -31,7 +31,7 @@ public class AccountController {
 	public ResponseEntity<?> createUser(@RequestBody User newUser) {
 		if (userService.find(newUser.getUsername()) != null) {
 			return new ResponseEntity(
-					new UserError("Nome de usuário: " + newUser.getUsername() + "Já existe!"),
+					new UserError("Nome de usuário: " + newUser.getUsername() + " Já existe!"),
 					HttpStatus.CONFLICT);
 		}
 		newUser.setRole("USER");

@@ -3,6 +3,7 @@ import {Subject} from "rxjs/internal/Subject";
 import {ProductOrders} from "../model/product-orders.model";
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from "@angular/core";
+import {AppComponent} from "../app.component";
 
 @Injectable()
 export class EcommerceService {
@@ -26,11 +27,11 @@ export class EcommerceService {
     }
 
     getAllProducts() {
-        return this.http.get(this.productsUrl);
+        return this.http.get(AppComponent.API_URL + this.productsUrl);
     }
 
     saveOrder(order: ProductOrders) {
-        return this.http.post(this.ordersUrl, order);
+        return this.http.post(AppComponent.API_URL + this.ordersUrl, order);
     }
 
     set SelectedProductOrder(value: ProductOrder) {
