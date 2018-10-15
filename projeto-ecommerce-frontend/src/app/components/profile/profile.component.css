@@ -1,6 +1,8 @@
 body { padding: 2em; }
 
+.container-fluid{
 
+}
 /* Shared */
 .loginBtn {
   box-sizing: border-box;

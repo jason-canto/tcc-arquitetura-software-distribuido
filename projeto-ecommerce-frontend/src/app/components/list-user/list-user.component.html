@@ -1,25 +1,20 @@
 <div class="col-md-6">
-  <h2> User Details</h2>
-  <button class="btn btn-danger" (click)="addUser()"> Add User</button>
+  <h2>Usuários cadastrados</h2>
   <table class="table table-striped">
     <thead>
     <tr>
-      <th class="hidden">Id</th>
-      <th>FirstName</th>
-      <th>LastName</th>
-      <th>Email</th>
-      <th>Action</th>
+      <th>Id</th>
+      <th>Usuário</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let user of users">
-      <td class="hidden"></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><button class="btn btn-danger" (click)="deleteUser(user)"> Delete</button>
-        <button class="btn btn-danger" (click)="editUser(user)" style="margin-left: 20px;"> Edit</button></td>
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td><button class="btn btn-danger" (click)="deleteUser(user)">Remover</button>
+        <button class="btn btn-danger" (click)="editUser(user)" style="margin-left: 20px;">Editar</button></td>
     </tr>
     </tbody>
   </table>
+  <button class="btn btn-danger float-right" (click)="addUser()">Adicionar Usuário</button>
 </div>

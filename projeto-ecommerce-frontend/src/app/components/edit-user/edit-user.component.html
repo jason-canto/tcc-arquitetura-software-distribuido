@@ -1,21 +1,25 @@
-<div class="col-md-6">
-  <h2 class="text-center">Edit User</h2>
-  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="email">Email address:</label>
-      <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
-    </div>
+<div class="container">
+	<div class="card card-container">
+		<h2 class="text-center">Editar usuário</h2>
+		<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+			<div class="form-group">
+				<label for="username">Usuário/Email:</label>
+				<input type="username" formControlName="username" placeholder="Usuário/Email" name="username" class="form-control" id="username">
+			</div>
+			<div class="form-group">
+				<label for="fullName">Nome completo:</label>
+				<input formControlName="fullName" placeholder="Nome completo" name="fullName" class="form-control" id="fullName">
+			</div>
 
-    <div class="form-group">
-      <label for="firstName">First Name:</label>
-      <input formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
-    </div>
-
-    <div class="form-group">
-      <label for="lastName">Last Name:</label>
-      <input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
-    </div>
-
-    <button class="btn btn-success">Update</button>
-  </form>
+			<div class="form-group">
+				<label for="password">Senha:</label>
+				<input formControlName="password" placeholder="Senha" name="password" type="password" class="form-control" id="password">
+			</div>
+			<div class="form-group">
+				<label>Confirme a senha</label>
+				<input type="password" formControlName="confirmPassword"  placeholder="Confirme a senha" class="form-control" />
+			</div>
+			<button [disabled]="!editForm.valid" class="btn btn-success float-right">Salvar</button>
+		</form>
+	</div>
 </div>

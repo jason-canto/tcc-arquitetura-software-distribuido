@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
+	@CrossOrigin
 	@GetMapping("/users")
 	public ResponseEntity<List<User>> getUsers() {
 		List<User> users = new ArrayList<>();
@@ -32,23 +34,27 @@ public class UserController {
 		return new ResponseEntity<>(users, HttpStatus.OK);
 	}
 
+	@CrossOrigin
 	@PostMapping("/users")
-	public ResponseEntity<User> createUser(@RequestBody User user) {;
+	public ResponseEntity<User> createUser(@RequestBody User user) {
 		User userReturned = service.save(user);
 		return new ResponseEntity<>(userReturned, HttpStatus.CREATED);
 	}
 
+	@CrossOrigin
 	@DeleteMapping("/users/{id}")
-	public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+	public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
 		service.deleteById(id);
-		return new ResponseEntity<>("Cliente removido com sucesso!", HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
+	@CrossOrigin
 	@PutMapping("/users/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User customer) {
 		return new ResponseEntity<>(service.save(customer), HttpStatus.OK);
 	}
 
+	@CrossOrigin
 	@GetMapping("/users/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable Long id) {
 		return new ResponseEntity<>(service.find(id), HttpStatus.OK);

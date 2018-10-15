@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
 import {first} from "rxjs/operators";
 import {Router} from "@angular/router";
+import { RxwebValidators,RxFormBuilder } from "@rxweb/reactive-form-validators";
 
 @Component({
   selector: 'app-add-user',
@@ -19,9 +20,10 @@ export class AddUserComponent implements OnInit {
 
     this.addForm = this.formBuilder.group({
       id: [],
-      email: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required]
+      username: ['', Validators.required],
+      fullName: ['', Validators.required],
+      password: ['', Validators.required],
+	  confirmPassword:['', RxwebValidators.compare({fieldName:'password' })]
     });
 
   }

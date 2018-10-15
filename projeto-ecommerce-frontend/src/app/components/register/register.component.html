@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-        <label for="password">Password</label>
+        <label for="password">Senha</label>
         <input type="password" class="form-control" name="password" id="password"[(ngModel)]="user.password" #password="ngModel" required minlength="4" />
         <div *ngIf="f.submitted && !password.valid" class="help-block">
 
@@ -41,6 +41,10 @@
 
         </div>
       </div>
+	  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && confirmPassword != password}">
+		<label>Confirme a senha</label>
+		<input type="password" class="form-control" name="confirmPassword" id="confirmPassword" [(ngModel)]="user.confirmPassword" #password="ngModel" required minlength="4" />
+	  </div>
       <div id="remember" class="checkbox">
 
       </div>

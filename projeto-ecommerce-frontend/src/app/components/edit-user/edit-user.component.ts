@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {User} from "../../model/user.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs/operators";
+import { RxwebValidators,RxFormBuilder } from "@rxweb/reactive-form-validators";
 
 @Component({
   selector: 'app-edit-user',
@@ -19,19 +20,20 @@ export class EditUserComponent implements OnInit {
   ngOnInit() {
     let userId = localStorage.getItem("editUserId");
     if(!userId) {
-      alert("Invalid action.")
+      alert("Ação Inválida.")
       this.router.navigate(['list-user']);
       return;
     }
     this.editForm = this.formBuilder.group({
       id: [],
-      email: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required]
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      fullName: ['', Validators.required],
+	  confirmPassword:['', RxwebValidators.compare({fieldName:'password' })]
     });
     this.userService.getUserById(userId)
       .subscribe( data => {
-        this.editForm.setValue(data);
+        this.editForm.setValue({'id': data.id, 'username': data.username, 'fullName': data.fullName,  'password': ''});
       });
   }
 
