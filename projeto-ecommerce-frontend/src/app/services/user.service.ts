@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from "../model/user.model";
 import {Subject} from "rxjs/internal/Subject";
+import {AppComponent} from "../app.component";
 
 @Injectable()
 export class UserService {
@@ -9,22 +10,22 @@ export class UserService {
 	private usersUrl = "/admin/users";
 
 	getUsers() {
-		return this.http.get<User[]>(this.usersUrl);
+		return this.http.get<User[]>(AppComponent.API_URL + this.usersUrl);
 	}
 
 	getUserById(id: string) {
-		return this.http.get<User>(this.usersUrl + '/' + id);
+		return this.http.get<User>(AppComponent.API_URL + this.usersUrl + '/' + id);
 	}
 
 	createUser(user: User) {
-		return this.http.post(this.usersUrl, user);
+		return this.http.post(AppComponent.API_URL + this.usersUrl, user);
 	}
 
 	updateUser(user: User) {
-		return this.http.put(this.usersUrl + '/' + user.id, user);
+		return this.http.put(AppComponent.API_URL + this.usersUrl + '/' + user.id, user);
 	}
 
 	deleteUser(id: string) {
-		return this.http.delete(this.usersUrl + '/' + id);
+		return this.http.delete(AppComponent.API_URL + this.usersUrl + '/' + id);
 	}
 }

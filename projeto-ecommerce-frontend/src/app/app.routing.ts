@@ -16,6 +16,9 @@ const appRoutes: Routes = [
 	{ path: 'profile', component: ProfileComponent, canActivate: [UrlPermission] },
 	{ path: 'login', component: LoginComponent },
 	{ path: 'register', component: RegisterComponent },
+    { path: 'add-user', component: AddUserComponent },
+    { path: 'edit-user', component: EditUserComponent },
+    { path: 'list-user', component: ListUserComponent },
 	{ path: 'admin', redirectTo: '/login' },
     { path: '', component: EcommerceComponent}
 ];
