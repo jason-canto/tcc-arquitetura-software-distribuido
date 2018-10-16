@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="card card-container">
+		<p id="profile-name" class="profile-name-card"></p>
+		<h2 class="text-center">Adicionar produto</h2>
+		<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+			<div class="form-group">
+				<label for="name">Nome do produto:</label>
+				<input formControlName="name" placeholder="Nome do produto" name="name" class="form-control" id="name">
+			</div>
+			<div class="form-group">
+				<label for="price">Preço do produto:</label>
+				<input formControlName="price" placeholder="Preço do produto" name="price" class="form-control" id="price">
+			</div>
+			<div class="form-group">
+				<label for="pictureUrl">Imagem para o catálogo:</label>
+				<input formControlName="pictureUrl" placeholder="Imagem para o catálogo" name="pictureUrl" class="form-control" id="pictureUrl">
+			</div>
+			<button class="btn btn-success float-right">Salvar</button>
+		</form>
+	</div>
+</div>

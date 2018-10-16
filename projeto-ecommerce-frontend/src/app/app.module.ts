@@ -9,6 +9,7 @@ import {AuthService} from "./services/auth.service";
 import {AccountService} from "./services/account.service";
 import {EcommerceService} from "./services/ecommerce.service";
 import {UserService} from "./services/user.service";
+import {ProductService} from "./services/product.service";
 import {AppComponent} from './app.component';
 import {EcommerceComponent} from './components/ecommerce/ecommerce.component';
 import {ProductsComponent} from './components/products/products.component';
@@ -21,6 +22,9 @@ import {AddUserComponent} from './components/add-user/add-user.component';
 import {EditUserComponent} from './components/edit-user/edit-user.component';
 import {ListUserComponent} from './components/list-user/list-user.component';
 import {UrlPermission} from "./urlPermission/url.permission";
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { ListProductComponent } from './components/list-product/list-product.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 @NgModule({
     declarations: [
@@ -30,22 +34,25 @@ import {UrlPermission} from "./urlPermission/url.permission";
         ShoppingCartComponent,
         OrdersComponent,
         LoginComponent,
-		RegisterComponent,
-		ProfileComponent,
+        RegisterComponent,
+        ProfileComponent,
         AddUserComponent,
         EditUserComponent,
-        ListUserComponent
+        ListUserComponent,
+        AddProductComponent,
+        ListProductComponent,
+        EditProductComponent
     ],
     imports: [
         BrowserModule,
-		HttpModule,
-		routing,
+        HttpModule,
+        routing,
         HttpClientModule,
         FormsModule,
-		FacebookModule.forRoot(),
+        FacebookModule.forRoot(),
         ReactiveFormsModule
     ],
-    providers: [AuthService, AccountService, UrlPermission, UserService, EcommerceService],
+    providers: [AuthService, AccountService, UrlPermission, UserService, ProductService, EcommerceService],
     bootstrap: [AppComponent]
 })
 

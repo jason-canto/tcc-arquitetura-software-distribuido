@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <h2>Produtos cadastrados</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Preço</th>
+      <th>Url da imagem</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.pictureUrl}}</td>
+      <td><button class="btn btn-danger" (click)="deleteProduct(product)">Remover</button>
+        </td>
+      <td><button class="btn btn-danger" (click)="editProduct(product)" style="margin-left: 20px;">Editar</button></td>
+    </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-danger float-right" (click)="addProduct()">Adicionar Produto</button>
+</div>
